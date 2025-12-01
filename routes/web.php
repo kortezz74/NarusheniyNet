@@ -22,12 +22,15 @@ require __DIR__.'/auth.php';
 Route::get('/reports', function(){
     return view('report.index');
 })->name('report.index');
+Route::get('/reports/create',function(){
+    return view('report.create');
+})->name('reports.create');
 
 Route::prefix('reports')->group(function () {
     Route::get('/', [ReportController::class, 'index'])->name('reports.index');
     Route::get('/create', [ReportController::class, 'create'])->name('reports.create');
     Route::post('/', [ReportController::class, 'store'])->name('reports.store');
-    Route::get('/{report}', [ReportController::class, 'show'])->name('reports.show');
+    Route::get('/reports/{report}/edit', [ReportController::class, 'edit'])->name('reports.edit');
     Route::put('/{report}', [ReportController::class, 'update'])->name('reports.update');
     Route::delete('/{report}', [ReportController::class, 'destroy'])->name('reports.destroy');
 });

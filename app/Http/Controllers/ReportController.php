@@ -19,14 +19,13 @@ class ReportController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'car_number' => 'required|string|max:10',
-            'description' => 'required|string|max:1000',
+            'number' => 'string',
+            'description' => 'text',
         ]);
 
-        Report::create($validated);
+        Report::create($data);
 
-        return redirect()->route('reports.index')
-            ->with('success', 'Заявление успешно создано!');
+        return redirect()->back();
     }
 
     public function show(Report $report)
@@ -37,22 +36,20 @@ class ReportController extends Controller
     public function update(Request $request, Report $report)
     {
         $validated = $request->validate([
-            'car_number' => 'required|string|max:10',
-            'description' => 'required|string|max:1000',
+            'number' => 'string',
+            'description' => 'text',
         ]);
 
         $report->update($validated);
 
-        return redirect()->route('reports.index')
-            ->with('success', 'Заявление успешно обновлено!');
+        return redirect()->back();
     }
 
     public function destroy(Report $report)
     {
         $report->delete();
 
-        return redirect()->route('reports.index')
-            ->with('success', 'Заявление успешно удалено!');
+        return redirect()->back();
     }
 
 }

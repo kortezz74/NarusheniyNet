@@ -25,10 +25,10 @@
                 <div>
                     <a href="{{ route('reports.show', $report) }}" class="btn btn-warning">Редактировать</a>
                     
-                    <form action="{{ route('reports.destroy', $report) }}" method="POST" style="display: inline;">
-                        @csrf
+                    <form  method="POST"action="{{ route('reports.destroy', $report->id)}}">
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('Вы уверены?')">Удалить</button>
+                        @csrf
+                        <input type="submit" value="Удалить">
                     </form>
                 </div>
             </div>
