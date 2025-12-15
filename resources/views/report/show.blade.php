@@ -16,12 +16,12 @@
 <body>
     <h1>Создание заявления</h1>
 
-    <form action="{{ route('reports.store') }}" method="POST">
+    <form method="POST" action="{{ route('reports.update', $report->id) }}">
         @csrf
-        
+        @method('put')
         <div class="form-group">
             <label for="car_number">Номер автомобиля:</label>
-            <input type="text" id="car_number" name="car_number" value="{{ old('car_number') }}" required>
+            <input type="text" id="car_number" name="number" value="{{ old('car_number') }}" required>
             @error('car_number')
                 <div style="color: red;">{{ $message }}</div>
             @enderror

@@ -33,4 +33,5 @@ Route::prefix('reports')->group(function () {
     Route::get('/reports/{report}/edit', [ReportController::class, 'edit'])->name('reports.edit');
     Route::put('/{report}', [ReportController::class, 'update'])->name('reports.update');
     Route::delete('/{report}', [ReportController::class, 'destroy'])->name('reports.destroy');
+    Route::resource('reports', ReportController::class);
 });

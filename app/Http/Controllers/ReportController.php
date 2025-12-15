@@ -18,14 +18,17 @@ class ReportController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'number' => 'string',
-            'description' => 'text',
+        
+        $data = $request->validate([
+            'number'=> 'string',
+            'description' => 'string',
         ]);
+         
 
         Report::create($data);
 
         return redirect()->back();
+        
     }
 
     public function show(Report $report)
@@ -37,7 +40,7 @@ class ReportController extends Controller
     {
         $validated = $request->validate([
             'number' => 'string',
-            'description' => 'text',
+            'description' => 'string',
         ]);
 
         $report->update($validated);

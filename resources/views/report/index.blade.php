@@ -18,7 +18,7 @@
     @if($reports->count() > 0)
         @foreach($reports as $report)
             <div class="application">
-                <p><strong>Номер автомобиля:</strong> {{ $report->car_number }}</p>
+                <p><strong>Номер автомобиля:</strong> {{ $report->number }}</p>
                 <p><strong>Описание:</strong> {{ $report->description }}</p>
                 <p><strong>Дата создания:</strong> {{ $report->created_at->format('d.m.Y H:i') }}</p>
                 

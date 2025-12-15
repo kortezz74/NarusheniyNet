@@ -25,4 +25,12 @@ return new class extends Migration
             ->nullOnDelete();
         });
     }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('reports');
+    }
 };

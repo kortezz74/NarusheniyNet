@@ -13,8 +13,8 @@
         @csrf
         
         <div class="form-group">
-            <label for="car_number">Номер автомобиля:</label>
-            <input type="text" id="car_number" name="car_number" value="{{ old('car_number') }}" required>
+            <label for="number">Номер автомобиля:</label>
+            <input type="text" id="car_number" name="number" value="{{ old('number') }}" required>
             @error('car_number')
                 <div style="color: red;">{{ $message }}</div>
             @enderror
